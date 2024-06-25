@@ -1,32 +1,39 @@
-# AWS Three Tier Web Architecture Workshop
+# Deploying A 3-Tier Architecture on AWS
 
-## Description: 
-This workshop is a hands-on walk through of a three-tier web architecture in AWS. We will be manually creating the necessary network, security, app, and database components and configurations in order to run this architecture in an available and scalable manner.
+An AWS three-tier architecture is a popular cloud architecture model that separates an application into three logical layers: the presentation tier, the application tier, and the data tier. This structure improves the scalability, reliability, and security of applications.
 
-## Audience:
-Although this is an introductory level workshop, it is intended for those who have a technical role. The assumption is that you have at least some foundational aws knowledge around VPC, EC2, RDS, S3, ELB and the AWS Console.  
-
-## Pre-requisites:
-1. An AWS account. If you don’t have an AWS account, follow the instructions [here](https://aws.amazon.com/console/) and
-click on “Create an AWS Account” button in the top right corner to create one.
-1. IDE or text editor of your choice.
+![Architecture Diagram](https://github.com/Dom7k/AWS-3-Tier-Arhitecture/blob/main/3-Tier%20Architecture%20diagram.gif)
 
 ## Architecture Overview
-![Architecture Diagram](https://github.com/aws-samples/aws-three-tier-web-architecture-workshop/blob/main/application-code/web-tier/src/assets/3TierArch.png)
 
-In this architecture, a public-facing Application Load Balancer forwards client traffic to our web tier EC2 instances. The web tier is running Nginx webservers that are configured to serve a React.js website and redirects our API calls to the application tier’s internal facing load balancer. The internal facing load balancer then forwards that traffic to the application tier, which is written in Node.js. The application tier manipulates data in an Aurora MySQL multi-AZ database and returns it to our web tier. Load balancing, health checks and autoscaling groups are created at each layer to maintain the availability of this architecture.
+### Presentation Tier
+The front-end of the application that handles user interactions.
 
-## Workshop Instructions:
+### Application Tier
+Also known as the business logic tier, this layer processes user requests and interacts with the data tier.
 
-See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
+### Data Tier
+The backend of the application that stores and manages all critical information.
 
+## AWS Services Utilized
+- EC2
+- Amazon Aurora
+- VPC
+- Subnet
+- Route Table
+- NAT Gateway
+- Security Group
+- Elastic Load Balancing
 
-## Security
+## Highlights
+- Set up a Virtual Private Cloud (VPC) with public and private subnets distributed across multiple Availability Zones.
+- Configured NAT Gateways to ensure secure outbound internet access from private subnets.
+- Deployed an Application Load Balancer (ALB) to distribute traffic efficiently to the web tier.
+- Utilized Amazon RDS to manage the database instance within the data tier.
+- Implemented Auto Scaling Groups (ASG) to automatically adjust the number of EC2 instances based on demand.
+- Adhered to AWS Well-Architected Framework principles to create a resilient and high-performance architecture.
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+## Key Learnings
+Implementing the 3-tier architecture improved security, scalability, and maintainability while providing development flexibility. The project achieved a robust, scalable, and highly available architecture with optimized resource usage and fault tolerance across multiple Availability Zones.
 
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
-# AWS-3-Tier-Arhitecture
+For a step-by-step guide, go to [AWS Workshop Guide](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US).
