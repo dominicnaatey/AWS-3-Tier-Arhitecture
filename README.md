@@ -24,6 +24,7 @@ The backend of the application that stores and manages all critical information.
 - NAT Gateway
 - Security Group
 - Elastic Load Balancing
+- IAM
 
 ## Highlights
 - Set up a Virtual Private Cloud (VPC) with public and private subnets distributed across multiple Availability Zones.
